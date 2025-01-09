@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I'm back</title>
+    <title>saya kembali</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -111,6 +111,11 @@
         }
 
         @media (max-width: 480px) {
+            #Btn {
+                top: 50px;
+                left: 20px;
+            }
+
             h1 {
                 font-size: 1.5rem;
             }
@@ -125,10 +130,10 @@
 </head>
 
 <body>
-    <h1>I'm back</h1>
+    <h1>Rahmat telah kembali</h1>
     <img src="gambar.jpg" alt="Gambar" height="200">
 
-    <h1>Kalian rindu aku nggak???</h1>
+    <h1>apakah kalian merindukan aku???</h1>
 
     <div class="button-container">
         <a href="https://api.whatsapp.com/send?phone=8390923940429&text=aku%20rindu%20kamu">
@@ -147,24 +152,17 @@
         const Btn = document.getElementById("Btn");
         let pindah = 1;
 
+
         function ga() {
             const maxWidth = window.innerWidth - Btn.offsetWidth; // Lebar layar dikurangi lebar tombol
             const maxHeight = window.innerHeight - Btn.offsetHeight; // Tinggi layar dikurangi tinggi tombol
 
-            if (pindah === 1) {
-                Btn.style.top = `${Math.min(400, maxHeight)}px`;
-                Btn.style.left = `${Math.min(300, maxWidth)}px`;
-                pindah = 2;
-            } else if (pindah === 2) {
-                Btn.style.top = `${Math.min(400, maxHeight)}px`;
-                Btn.style.left = `${Math.min(50, maxWidth)}px`;
-                pindah = 3;
-            } else if (pindah === 3) {
-                Btn.style.top = `${Math.min(370, maxHeight)}px`;
-                Btn.style.left = `${Math.min(166, maxWidth)}px`;
-                pindah = 1;
+            if (maxWidth > 0 && maxHeight > 0) {
+                Btn.style.top = `${Math.random() * maxHeight}px`;
+                Btn.style.left = `${Math.random() * maxWidth}px`;
             }
         }
+
 
 
 
