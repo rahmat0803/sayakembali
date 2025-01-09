@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm back</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #4facfe, #00f2fe);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin: 18px 0;
+        }
+
+        img {
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .button-container a input,
+        #Btn input {
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 15px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-container a input:hover,
+        #Btn input:hover {
+            background-color: #0078ff;
+            transform: scale(1.1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        #Btn {
+
+            position: fixed;
+            top: 370px;
+            left: 166px;
+            transition: all 0.3s ease;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 0.8rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .button-container a input,
+            #Btn input {
+                font-size: 10rem;
+                padding: 10px 20px;
+            }
+
+            img {
+                max-width: 80%;
+            }
+
+            footer {
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1rem;
+            }
+
+            .button-container a input,
+            #Btn input {
+                font-size: 0.8rem;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Rahmat Telah kembali</h1>
+    <img src="gambar.jpg" alt="Gambar" height="200">
+
+    <h1>apakah kalian merindukan saya???</h1>
+
+    <div class="button-container">
+        <a href="https://api.whatsapp.com/send?phone=8390923940429&text=aku%20rindu%20kamu">
+            <input type="button" value="Rindu">
+        </a>
+        <div id="Btn">
+            <input type="button" value="Tidak" onmouseover="ga()">
+        </div>
+    </div>
+
+    <footer>
+        Made with ❤️ by <a href="#">You</a>
+    </footer>
+
+    <script>
+        const Btn = document.getElementById("Btn");
+        let pindah = 1;
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+
+        function ga() {
+            if (pindah === 1) {
+                Btn.style.top = `${Math.min(400, screenHeight - 50)}px`;
+                Btn.style.left = `${Math.min(300, screenWidth - 50)}px`;
+                pindah = 2;
+            } else if (pindah === 2) {
+                Btn.style.top = `${Math.min(400, screenHeight - 50)}px`;
+                Btn.style.left = `${Math.max(50, 50)}px`;
+                pindah = 3;
+            } else if (pindah === 3) {
+                Btn.style.top = `${Math.min(370, screenHeight - 50)}px`;
+                Btn.style.left = `${Math.max(166, 50)}px`;
+                pindah = 1;
+            }
+        }
+    </script>
+</body>
+
+</html>
