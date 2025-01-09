@@ -23,7 +23,7 @@
         h1 {
             font-size: 3rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            margin: 18px 0;
+            margin: 20px 0;
         }
 
         img {
@@ -112,7 +112,7 @@
 
         @media (max-width: 480px) {
             h1 {
-                font-size: 1rem;
+                font-size: 1.5rem;
             }
 
             .button-container a input,
@@ -125,17 +125,17 @@
 </head>
 
 <body>
-    <h1>Rahmat Telah kembali</h1>
+    <h1>I'm back</h1>
     <img src="gambar.jpg" alt="Gambar" height="200">
 
-    <h1>apakah kalian merindukan saya???</h1>
+    <h1>Kalian rindu aku nggak???</h1>
 
     <div class="button-container">
         <a href="https://api.whatsapp.com/send?phone=8390923940429&text=aku%20rindu%20kamu">
             <input type="button" value="Rindu">
         </a>
         <div id="Btn">
-            <input type="button" value="Tidak" onmouseover="ga()">
+            <input type="button" value="Ngak" onmouseover="ga()">
         </div>
     </div>
 
@@ -146,24 +146,29 @@
     <script>
         const Btn = document.getElementById("Btn");
         let pindah = 1;
-        const screenWidth = window.innerWidth;
-        const screenHeight = window.innerHeight;
 
         function ga() {
+            const maxWidth = window.innerWidth - Btn.offsetWidth; // Lebar layar dikurangi lebar tombol
+            const maxHeight = window.innerHeight - Btn.offsetHeight; // Tinggi layar dikurangi tinggi tombol
+
             if (pindah === 1) {
-                Btn.style.top = `${Math.min(400, screenHeight - 50)}px`;
-                Btn.style.left = `${Math.min(300, screenWidth - 50)}px`;
+                Btn.style.top = `${Math.min(400, maxHeight)}px`;
+                Btn.style.left = `${Math.min(300, maxWidth)}px`;
                 pindah = 2;
             } else if (pindah === 2) {
-                Btn.style.top = `${Math.min(400, screenHeight - 50)}px`;
-                Btn.style.left = `${Math.max(50, 50)}px`;
+                Btn.style.top = `${Math.min(400, maxHeight)}px`;
+                Btn.style.left = `${Math.min(50, maxWidth)}px`;
                 pindah = 3;
             } else if (pindah === 3) {
-                Btn.style.top = `${Math.min(370, screenHeight - 50)}px`;
-                Btn.style.left = `${Math.max(166, 50)}px`;
+                Btn.style.top = `${Math.min(370, maxHeight)}px`;
+                Btn.style.left = `${Math.min(166, maxWidth)}px`;
                 pindah = 1;
             }
         }
+
+
+
+
     </script>
 </body>
 
